@@ -8,15 +8,14 @@
 }
 
 @utility content-box {
-    width: 95%;
-    margin: 0 auto;
-    max-width: 1600px;
+    @apply w-[95%] mx-auto max-w-250;
 }
+ @utility cmt {
+    @apply mt-12;
+ }
 
 @utility content-box-s {
-    width: 90%;
-    margin: 0 auto;
-    max-width: 1200px;
+    @apply w-[90%] mx-auto;
 }
 
 @utility nav-clicks {

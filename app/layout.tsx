@@ -20,9 +20,9 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-        <html lang="en" className={`${oswald.variable} ${inter.variable} h-full antialiased`}>
+        <html lang="en" className={`${oswald.variable} ${inter.variable} antialiased`}>
 
-            <body className="min-h-full flex flex-col bg-black text-white">
+            <body className=" bg-black text-white font-inter">
                 <Nav />
                 {children}
                 <Footer />

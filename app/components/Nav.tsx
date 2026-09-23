@@ -61,14 +61,14 @@ const Nav = () => {
 
                 {/* plan, saved */}
                 <div className="flex gap-4 items-center justify-end text-xs">
-                    <div className="flex gap-3">
+                    <div className="flex gap-2 items-center">
                         <p>Plan </p>
-                        <p className="bg-lime-400 rounded-full px-1 text-center text-black">0</p>
+                        <p className="bg-lime-400 rounded-full px-1.5 py-0.5 font-bold text-center text-black">0</p>
                     </div>
 
-                    <div className="flex gap-3">
+                    <div className="flex gap-2 items-center">
                         <p className="text-gray-300">Saved</p>
-                        <p className="outline-2 outline-gray-500/30 rounded-full px-1 text-center">0</p>
+                        <p className="outline-2 outline-gray-500/30 rounded-full px-1.5 py-0.5 text-center">0</p>
                     </div>
                 </div>
 

@@ -4,7 +4,7 @@ import Link from "next/link"
 
 const Footer = () => {
     return (
-        <footer className=" border-t border-gray-500/80 bg-[#090A0D] py-8">
+        <footer className="border-t border-gray-500/80 bg-[#090A0D] py-8 cmt">
 
             {/* content frame */}
             <div className="content-box-s flex flex-col items-center justify-between gap-4
