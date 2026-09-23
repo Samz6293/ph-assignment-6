@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import {Oswald, Inter} from "next/font/google";
 import "./globals.css";
+import Nav from "./components/Nav";
 
 const oswald = Oswald({
   variable: "--font-oswald",
@@ -18,11 +19,13 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html
-      lang="en"
-      className={`${oswald.variable} ${inter.variable} h-full antialiased`}
-    >
-      <body className="min-h-full flex flex-col bg-black text-white">{children}</body>
-    </html>
+        <html lang="en" className={`${oswald.variable} ${inter.variable} h-full antialiased`}>
+
+            <body className="min-h-full flex flex-col bg-black text-white">
+                <Nav />
+                {children}
+            </body>
+
+        </html>
   );
 }

@@ -1,5 +1,24 @@
 @import "tailwindcss";
+
+/* * { outline: 1px solid red;} */
+
 @theme {
     --font-oswald: var(--font-oswald);
     --font-inter: var(--font-inter);
+}
+
+@utility content-box {
+    width: 95%;
+    margin: 0 auto;
+    max-width: 1600px;
+}
+
+@utility content-box-s {
+    width: 90%;
+    margin: 0 auto;
+    max-width: 1200px;
+}
+
+@utility nav-clicks {
+    @apply cursor-pointer text-2xl text-lime-400;
 }
