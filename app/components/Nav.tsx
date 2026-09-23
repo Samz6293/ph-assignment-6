@@ -22,7 +22,7 @@ const Nav = () => {
 
     return (
         <nav className="font-inter sticky top-0 z-50 py-4 backdrop-blur-xl border-b border-gray-500/80
-        bg-black-900/80 shadow-2xl shadow-black/50">
+        bg-[#090A0D] shadow-2xl shadow-black/50">
 
             {/* content wrapper */}
             <div className="content-box-s grid grid-cols-2 items-center
@@ -41,12 +41,14 @@ const Nav = () => {
                 {/* logo */}
                 <div className="hidden gap-2 items-center
                 md:flex">
-                    <Image src={logo} alt="FITLOG Logo" width={28} height={28} className="w-5 h-auto"/>
-                    <p className="font-oswald font-extrabold">FITLOG</p>
+                    <Link href={"/"} className="flex gap-2 items-center">
+                        <Image src={logo} alt="FITLOG Logo" width={28} height={28} className="w-5 h-auto"/>
+                        <p className="font-oswald font-extrabold">FITLOG</p>
+                    </Link>
                 </div>
 
                 {/* links */}
-                <ul className="hidden justify-center text-gray-300 gap-4 text-sm
+                <ul className="hidden justify-center text-gray-300 gap-4 text-xs
                 md:flex">
                     {navlinks.map((link) => (
                         <li key={link.name}>
@@ -58,15 +60,15 @@ const Nav = () => {
                 </ul>
 
                 {/* plan, saved */}
-                <div className="flex gap-4 items-center justify-end">
+                <div className="flex gap-4 items-center justify-end text-xs">
                     <div className="flex gap-3">
                         <p>Plan </p>
-                        <p className="bg-lime-400 rounded-full px-2 text-center text-black">0</p>
+                        <p className="bg-lime-400 rounded-full px-1 text-center text-black">0</p>
                     </div>
 
                     <div className="flex gap-3">
                         <p className="text-gray-300">Saved</p>
-                        <p className="outline-2 outline-gray-500/30 rounded-full px-2 text-center">0</p>
+                        <p className="outline-2 outline-gray-500/30 rounded-full px-1 text-center">0</p>
                     </div>
                 </div>
 
