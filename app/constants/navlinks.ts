@@ -1,4 +1,4 @@
 export const navlinks = [
-    {name: "Workouts", page: "#workouts"},
+    {name: "Workouts", page: "/"},
     {name: "My Plan", page: "my-plan"},
 ]

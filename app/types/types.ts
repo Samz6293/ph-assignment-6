@@ -17,3 +17,7 @@ export interface Workout {
 export interface WorkoutCardProps {
     workout: Workout
 }
+ export interface ExerciseContextType {
+    onLink: string
+    setOnLink: (link: string) => void
+ }

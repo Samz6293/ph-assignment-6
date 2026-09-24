@@ -1,12 +1,14 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { MdClose, MdMenu } from "react-icons/md";
 import { navlinks } from "../constants/navlinks";
 import { RiHome2Line } from "react-icons/ri";
 import logo from "@/app/assets/logo.png"
 import Image from "next/image";
+import { ExerciseContextCreate } from "../context/ExerciseContext";
+import { ExerciseContextType } from "../types/types";
 
 const Nav = () => {
 
@@ -21,8 +23,7 @@ const Nav = () => {
         }
     },[isOpen])
 
-    // dynamic button (TODO: Add to useContext)
-    const [onLink, setOnLink] = useState("Workouts");
+    const {onLink, setOnLink} = useContext(ExerciseContextCreate);
     const handleOnLink = (link: string) => {
         if(onLink !== link) {
             setOnLink(link);
@@ -50,7 +51,7 @@ const Nav = () => {
                 {/* logo */}
                 <div className="hidden gap-2 items-center
                 md:flex">
-                    <Link href={"/"} className="flex gap-2 items-center">
+                    <Link href={"/"} className="flex gap-2 items-center" onClick={() => {onLink !== "none" && handleOnLink("Workouts")}}>
                         <Image src={logo} alt="FITLOG Logo" width={28} height={28} className="w-5 h-auto"/>
                         <p className="font-oswald font-extrabold">FITLOG</p>
                     </Link>
@@ -70,15 +71,20 @@ const Nav = () => {
 
                 {/* plan, saved */}
                 <div className="flex gap-4 items-center justify-end text-xs">
-                    <div className="flex gap-2 items-center">
-                        <p>Plan </p>
-                        <p className="bg-lime-400 rounded-full px-1.5 py-0.5 font-bold text-center text-black">0</p>
-                    </div>
+                    <Link href={"my-plan"} onClick={() => handleOnLink("My Plan")}>
+                        <div className="flex gap-2 items-center">
+                            <p>Plan </p>
+                            <p className="bg-lime-400 rounded-full px-1.5 py-0.5 font-bold text-center text-black">0</p>
+                        </div>
+                    </Link>
 
-                    <div className="flex gap-2 items-center">
-                        <p className="text-gray-300">Saved</p>
-                        <p className="outline-2 outline-gray-500/30 rounded-full px-1.5 py-0.5 text-center">0</p>
-                    </div>
+                    
+                    <Link href={"my-plan"} onClick={() => handleOnLink("My Plan")}>
+                        <div className="flex gap-2 items-center">
+                            <p className="text-gray-300">Saved</p>
+                            <p className="outline-2 outline-gray-500/30 rounded-full px-1.5 py-0.5 text-center">0</p>
+                        </div>
+                    </Link>
                 </div>
 
             </div>

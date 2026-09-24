@@ -9,7 +9,6 @@ const getWorkouts = async() => {
 
 const Library = async() => {
     const workouts = await getWorkouts();
-    console.log(workouts);
     return (
         <>
             {/* wrapper */}

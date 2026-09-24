@@ -3,6 +3,7 @@ import {Oswald, Inter} from "next/font/google";
 import "./globals.css";
 import Nav from "./components/Nav";
 import Footer from "./components/Footer";
+import ExerciseContext from "./context/ExerciseContext";
 
 const oswald = Oswald({
   variable: "--font-oswald",
@@ -23,9 +24,11 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <html lang="en" className={`${oswald.variable} ${inter.variable} antialiased`}>
 
             <body className=" bg-black text-white font-inter">
-                <Nav />
-                {children}
-                <Footer />
+                <ExerciseContext>
+                  <Nav />
+                  {children}
+                  <Footer />
+                </ExerciseContext>
             </body>
 
         </html>
