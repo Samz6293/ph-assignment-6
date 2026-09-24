@@ -57,7 +57,7 @@ const Nav = () => {
                 </div>
 
                 {/* links */}
-                <ul className="hidden justify-center items-center text-gray-300 gap-4 text-xs
+                <ul className="hidden justify-center items-center text-gray-500 gap-4 text-xs
                 md:flex">
                     {navlinks.map((link) => (
                         <li key={link.name} className={`hover:text-lime-400 ${link.name === onLink ? "font-bold text-lime-400 rounded-full px-3 py-1 bg-lime-800/20" : ""}`}>

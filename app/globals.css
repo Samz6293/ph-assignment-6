@@ -8,7 +8,7 @@
 }
 
 @utility content-box {
-    @apply w-[95%] mx-auto max-w-250;
+    @apply w-[95%] mx-auto max-w-270;
 }
  @utility cmt {
     @apply mt-12;
