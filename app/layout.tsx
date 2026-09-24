@@ -23,7 +23,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
         <html lang="en" className={`${oswald.variable} ${inter.variable} antialiased`}>
 
-            <body className=" bg-black text-white font-inter">
+            <body className="bg-black text-white font-inter min-h-screen flex flex-col">
                 <ExerciseContext>
                   <Nav />
                   {children}

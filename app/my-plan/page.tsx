@@ -38,7 +38,7 @@ export default function MyPlanPage() {
                 </div>
 
                 {/* exercise list */}
-                <div className="mt-2 h-75 border border-dashed border-gray-500/70 rounded-2xl flex flex-col justify-center items-center">
+                <div className="mt-2 mb-12 h-75 border border-dashed border-gray-500/70 rounded-2xl flex flex-col justify-center items-center">
                     <h1 className="uppercase font-oswald text-xl">Nothing here yet</h1>
                     <p className="text-xs text-gray-500">Browse the library and add a lift to get today moving.</p>
                     <Link href={"/"}>
