@@ -10,6 +10,7 @@ import Image from "next/image";
 
 const Nav = () => {
 
+    // mobile dropdown
     const [isOpen, setIsOpen] = useState(false);
     useEffect(() => {
         if(isOpen) {
@@ -19,6 +20,14 @@ const Nav = () => {
             document.body.style.overflow = "auto";
         }
     },[isOpen])
+
+    // dynamic button (TODO: Add to useContext)
+    const [onLink, setOnLink] = useState("Workouts");
+    const handleOnLink = (link: string) => {
+        if(onLink !== link) {
+            setOnLink(link);
+        }
+    }
 
     return (
         <nav className="font-inter sticky top-0 z-50 py-4 backdrop-blur-xl border-b border-gray-500/80
@@ -48,11 +57,11 @@ const Nav = () => {
                 </div>
 
                 {/* links */}
-                <ul className="hidden justify-center text-gray-300 gap-4 text-xs
+                <ul className="hidden justify-center items-center text-gray-300 gap-4 text-xs
                 md:flex">
                     {navlinks.map((link) => (
-                        <li key={link.name}>
-                            <Link onClick={() => setIsOpen(false)} href={link.page}>
+                        <li key={link.name} className={`hover:text-lime-400 ${link.name === onLink ? "font-bold text-lime-400 rounded-full px-3 py-1 bg-lime-800/20" : ""}`}>
+                            <Link onClick={() => handleOnLink(link.name)} href={link.page}>
                                 {link.name}
                             </Link>
                         </li>
