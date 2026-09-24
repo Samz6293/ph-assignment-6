@@ -2,12 +2,15 @@ import Image from "next/image"
 import { WorkoutCardProps } from "../types/types"
 import { FaRegClock, FaRegStar } from "react-icons/fa"
 import { AiFillFire } from "react-icons/ai"
+import Link from "next/link"
 
 const WorkoutCard = ({workout}: WorkoutCardProps) => {
     return (
         <>
             {/* frame */}
-            <div className="bg-zinc-900 rounded-xl overflow-hidden flex flex-col justify-between outline outline-zinc-800 w-full">
+            <Link href={`/exercise/${workout.id}`}>
+            <div className="bg-zinc-900 rounded-xl overflow-hidden flex flex-col justify-between outline outline-zinc-800 w-full
+            hover:outline-lime-400">
                 {/* image */}
                 <div className="h-full overflow-hidden">
                     <Image src={workout.image} alt={workout.name} width={593} height={593}/>
@@ -37,6 +40,7 @@ const WorkoutCard = ({workout}: WorkoutCardProps) => {
                     </div>
                 </div>
             </div>
+            </Link>
         </>
     )
 }

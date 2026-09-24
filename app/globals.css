@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-/* * { outline: 1px solid red;} */
+* { outline: 1px solid red;}
 
 @theme {
     --font-oswald: var(--font-oswald);
