@@ -5,6 +5,8 @@ import { ExerciseContextType } from "../types/types";
 export const ExerciseContextCreate = createContext<ExerciseContextType>({} as ExerciseContextType);
 const ExerciseContext = ({children}:{children: ReactNode}) => {
     const [onLink, setOnLink] = useState("none");
+    // const [plan, setPlan] = useState([]);
+    // const [saved, setSaved] = useState([]);
     const sharedData: ExerciseContextType = {
         onLink,
         setOnLink,

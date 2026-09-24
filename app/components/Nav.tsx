@@ -8,7 +8,6 @@ import { RiHome2Line } from "react-icons/ri";
 import logo from "@/app/assets/logo.png"
 import Image from "next/image";
 import { ExerciseContextCreate } from "../context/ExerciseContext";
-import { ExerciseContextType } from "../types/types";
 
 const Nav = () => {
 
