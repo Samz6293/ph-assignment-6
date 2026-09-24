@@ -1,5 +1,7 @@
 import { ExerciseDeatailsParams, ExerciseDetails } from "@/app/types/types"
 import Image from "next/image";
+import { CiBookmark } from "react-icons/ci";
+import { LuCalendarPlus2 } from "react-icons/lu";
 
 const getExerciseDetails = async(id: number): Promise<ExerciseDetails> => {
     const request = await fetch(`https://api.abcz.workers.dev/api/fitlog/${id}`);
@@ -13,14 +15,16 @@ const ExerciseDetailPage = async({params}: ExerciseDeatailsParams) => {
     return (
         <>
             {/* wrapper */}
-            <div className="content-box-s cmt mb-12 flex justify-between gap-13 md:content-box">
+            <div className="content-box-s cmt mb-12 flex flex-col justify-between gap-13
+            md:flex-row md:content-box">
                 {/* image */}
-                <div className="rounded-xl overflow-hidden min-h-72">
-                    <Image src={exerciseDetails.image} alt={exerciseDetails.name} width={740} height={740}/>
+                <div className="rounded-xl overflow-hidden">
+                    <Image src={exerciseDetails.image} alt={exerciseDetails.name} width={740} height={740} className="h-full object-cover object-center"/>
                 </div>
 
                 {/* details */}
-                <div className="w-4/5 flex flex-col gap-4">
+                <div className="flex flex-col w-full gap-4
+                md:w-[60%]">
 
                     {/* header */}
                     <div>
@@ -35,6 +39,42 @@ const ExerciseDetailPage = async({params}: ExerciseDeatailsParams) => {
                         )}
                     </div>
 
+                    {/* importand info */}
+                    <div className="bg-zinc-900 rounded-xl outline outline-zinc-800">
+
+                        {/* row */}
+                        <div className="end-to-end text-xs px-6 py-3">
+                            <h4 className="font-bold text-start text-gray-400">Equipment</h4>
+                            <p className="text-sm text-start md:text-end">{exerciseDetails.equipment}</p>
+                        </div>
+
+                        <div className="end-to-end text-xs px-6 py-3">
+                            <h4 className="font-bold text-start text-gray-400">Difficulty</h4>
+                            <p className="text-sm text-end">{exerciseDetails.difficulty}</p>
+                        </div>
+                        <div className="end-to-end text-xs px-6 py-3">
+                            <h4 className="font-bold text-start text-gray-400">Sets</h4>
+                            <p className="text-sm text-end">{exerciseDetails.sets}</p>
+                        </div>
+                        <div className="end-to-end text-xs px-6 py-3">
+                            <h4 className="font-bold text-start text-gray-400">Reps</h4>
+                            <p className="text-sm text-end">{exerciseDetails.reps}</p>
+                        </div>
+                        <div className="end-to-end text-xs px-6 py-3">
+                            <h4 className="font-bold text-start text-gray-400">Duration</h4>
+                            <p className="text-sm text-end">{exerciseDetails.duration} min</p>
+                        </div>
+                        <div className="end-to-end text-xs px-6 py-3">
+                            <h4 className="font-bold text-start text-gray-400">Calories</h4>
+                            <p className="text-sm text-end">{exerciseDetails.caloriesBurned} kcal</p>
+                        </div>
+
+                        <div className="end-to-end border-none text-xs px-6 py-3">
+                            <h4 className="font-bold text-start text-gray-400">Rating</h4>
+                            <p className="text-sm text-end">{exerciseDetails.rating}</p>
+                        </div>
+                    </div>
+
                     {/* instructions */}
                     <div>
                         <h3 className="uppercase font-extrabold mb-3">Instructions</h3>
@@ -43,6 +83,12 @@ const ExerciseDetailPage = async({params}: ExerciseDeatailsParams) => {
                                 <li className="text-xs text-gray-500 mb-2" key={index}>{index+1}. {step}</li>
                             )}
                         </ol>
+                    </div>
+
+                    <div className="flex flex-col gap-4
+                    md:flex-row">
+                        <button className="flex justify-center items-center gap-2 rounded-xl bg-lime-400 font-semibold text-black text-sm px-6 py-3 cursor-pointer"><LuCalendarPlus2 className="text-base" />Add to today's plan</button>
+                        <button className="flex justify-center items-center gap-2 rounded-xl outline outline-gray-800 font-semibold text-white text-sm px-6 py-3 cursor-pointer"><CiBookmark className="text-base" />Save for later</button>
                     </div>
                 </div>
             </div>

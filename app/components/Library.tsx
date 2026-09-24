@@ -12,7 +12,7 @@ const Library = async() => {
     return (
         <>
             {/* wrapper */}
-            <div id="library" className="flex flex-col gap-6">
+            <div id="library" className="flex flex-col gap-6 mb-12">
                 {/* header texts */}
                 <div className="content-box-s cmt flex flex-col
                 md:content-box">
