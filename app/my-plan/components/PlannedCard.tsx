@@ -30,7 +30,7 @@ const PlannedCard = ({exercise}: PlannedCardProps) => {
         md:flex-row">
 
             <div className="flex flex-col gap-4 items-center
-            md:flex-row">
+            sm:flex-row">
                 {/* image */}
                 <div className="w-full overflow-hidden rounded-xl
                 md:h-20 md:w-36">
