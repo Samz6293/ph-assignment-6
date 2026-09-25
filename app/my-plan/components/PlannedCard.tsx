@@ -26,16 +26,19 @@ const PlannedCard = ({exercise}: PlannedCardProps) => {
         }
     }
     return (
-        <div className="bg-zinc-900 rounded-xl p-4 overflow-hidden flex justify-between outline outline-zinc-800 w-full mb-5">
+        <div className="bg-zinc-900 rounded-xl p-4 overflow-hidden flex flex-col justify-between outline outline-zinc-800 w-full mb-5
+        md:flex-row">
 
-            <div className="flex gap-4 items-center">
+            <div className="flex flex-col gap-4 items-center
+            md:flex-row">
                 {/* image */}
-                <div className="h-20 w-36 overflow-hidden rounded-xl">
+                <div className="w-full overflow-hidden rounded-xl
+                md:h-20 md:w-36">
                     <Image src={exercise.image} alt={exercise.name} width={593} height={593} className="object-cover object-center"/>
                 </div>
 
                 {/* info */}
-                <div>
+                <div className="w-full flex flex-col items-start">
                     <h3 className="font-oswald font-bold uppercase">{exercise.name}</h3>
                     <p className="text-xs mt-1 text-gray-400">{exercise.equipment}</p>
 
@@ -49,7 +52,7 @@ const PlannedCard = ({exercise}: PlannedCardProps) => {
             </div>
 
             {/* buttons */}
-            <div className="flex gap-3 items-center">
+            <div className="flex mt-3 gap-3 items-center">
                 <Link href={`/exercise/${exercise.id}`}>
                 <button  className="flex w-fit justify-center items-center gap-2 rounded-full outline outline-gray-800  text-white text-xs px-3 py-1.5 cursor-pointer">View Details</button>
                 </Link>

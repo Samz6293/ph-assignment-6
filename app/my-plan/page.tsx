@@ -53,7 +53,8 @@ export default function MyPlanPage() {
                 </div>
 
                 {/* section and sort */}
-                <div className="flex items-center justify-between">
+                <div className="flex flex-col items-start justify-between gap-3
+                md:flex-row md:items-center">
                     <div className="bg-zinc-900 rounded-lg p-1.5 outline outline-zinc-800 w-fit">
                         <div className="space-x-2 text-xs font-light">
                             <button onClick={() =>setMode("plan")} className={`px-4 cursor-pointer ${mode === "plan" && "active-section"}`}>Today's Plan</button>
@@ -61,10 +62,11 @@ export default function MyPlanPage() {
                         </div>
                     </div>
 
-                    <div className="flex items-center gap-4">
+                    <div className="flex flex-row-reverse items-center gap-4
+                    md:flex-row">
                         <p className="text-sm text-gray-500">Sort By</p>
                         <div>
-                        <select defaultValue={sortby} onChange={(e)=> setSortBy(e.target.value)} className="select w-50 bg-zinc-900 rounded-lg p-1.5">
+                        <select defaultValue={sortby} onChange={(e)=> setSortBy(e.target.value)} className="select w-49 bg-zinc-900 rounded-lg p-1.5">
                             <option value="Duration">Duration</option>
                             <option value="Calories">Calories</option>
                             <option value="Rating">Rating</option>
