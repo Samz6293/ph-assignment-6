@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link"
 
-const Error = () => {
+ const Error = () => {
   return (
     <div className="content-box-s md:content-box  mt-10 mb-12 h-75 border border-dashed border-gray-500/70 rounded-2xl flex flex-col justify-center items-center">
         <h1 className="uppercase font-oswald text-xl">Error 404</h1>
@@ -12,4 +12,4 @@ const Error = () => {
     </div>
   )
 }
-
+export default Error;
