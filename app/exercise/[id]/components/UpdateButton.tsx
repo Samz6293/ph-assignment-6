@@ -20,7 +20,7 @@ const UpdateButton = ({exercise}: UpdateButtonProps) => {
         const inPlan = plan.some(workout => workout.id === exercise.id);
         if(!inPlan){
             setPlan([...plan, exercise]);
-            toast.success(`${exercise.name} added to today's plan`, {
+            toast.success(`Added to today's plan`, {
             position: "top-right", autoClose: 1000, hideProgressBar: false, closeOnClick: true, 
             pauseOnHover: false, draggable: true, progress: undefined, theme: "light", transition: Slide});
         }

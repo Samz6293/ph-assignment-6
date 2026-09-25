@@ -5,13 +5,14 @@ import Empty from "./components/Empty";
 import Heading from "./components/Heading";
 import PlannedCard from "./components/PlannedCard";
 import { ExerciseDetails } from "../types/types";
+import SavedCard from "./components/SavedCard";
 
 export default function MyPlanPage() {
 
     const {plan, saved} = useContext(ExerciseContextCreate);
     const [mode, setMode] = useState("plan");
     const [sortby, setSortBy] = useState("Duration");
-    const sortPlannedExercises = (exercises: ExerciseDetails[]): ExerciseDetails[] => {
+    const sortExercises = (exercises: ExerciseDetails[]): ExerciseDetails[] => {
         const sorted = [...exercises];
         if(sortby === "Duration"){
             sorted.sort((a,b)=> b.duration - a.duration);
@@ -24,7 +25,8 @@ export default function MyPlanPage() {
         }
         return sorted
     }
-    const sortedPlannedExercises = sortPlannedExercises(plan);
+    const sortedPlannedExercises = sortExercises(plan);
+    const sortedSavedExercises = sortExercises(saved);
     return (
         <>
             {/* wrapper */}
@@ -42,13 +44,13 @@ export default function MyPlanPage() {
                     <div className="flex flex-col gap-1 pl-6 border-l border-l-gray-500/20">
                         <p className="text-xs text-gray-500">Minutes</p>
                         <h2 className="font-oswald font-bold text-4xl">{mode === "plan" ? <p>{plan.reduce((acc, curr)=>(acc+curr.duration),0)}</p> : 
-                        <p>{plan.reduce((acc, curr)=>(acc+curr.duration),0)}</p>}</h2>
+                        <p>{saved.reduce((acc, curr)=>(acc+curr.duration),0)}</p>}</h2>
                     </div>
 
                     <div className="flex flex-col gap-1 pl-6 border-l border-l-gray-500/20">
                         <p className="text-xs text-gray-500">Calories</p>
                         <h2 className="font-oswald font-bold text-4xl">{mode === "plan" ? <p>{plan.reduce((acc, curr)=>(acc+curr.caloriesBurned),0)}</p> : 
-                        <p>{plan.reduce((acc, curr)=>(acc+curr.caloriesBurned),0)}</p>}</h2>
+                        <p>{saved.reduce((acc, curr)=>(acc+curr.caloriesBurned),0)}</p>}</h2>
                     </div>
                 </div>
 
@@ -84,8 +86,8 @@ export default function MyPlanPage() {
                         {sortedPlannedExercises.map(exercise => <PlannedCard key={exercise.id} exercise={exercise} />)}
                     </div>
                 : 
-                    <div>
-
+                    <div className="flex flex-col mb-12">
+                        {sortedSavedExercises.map(exercise => <SavedCard key={exercise.id} exercise={exercise} />)}
                     </div>
                 }
             </div>

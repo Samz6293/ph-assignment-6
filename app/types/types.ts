@@ -55,3 +55,7 @@ export interface UpdateButtonProps {
 export interface PlannedCardProps {
     exercise: ExerciseDetails;
 }
+
+export interface SavedCardProps {
+    exercise: ExerciseDetails;
+}

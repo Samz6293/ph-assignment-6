@@ -27,7 +27,7 @@ const ExerciseDetailPage = async({params}: ExerciseDeatailsParams) => {
 
                     {/* header */}
                     <div>
-                        <h1 className="font-oswald font-bold text-xl md:text-3xl">{exerciseDetails.name}</h1>
+                        <h1 className="font-oswald font-bold text-xl uppercase md:text-3xl">{exerciseDetails.name}</h1>
                         <p className="text-xs text-gray-500 mt-1">{exerciseDetails.description}</p>
                     </div>
 
