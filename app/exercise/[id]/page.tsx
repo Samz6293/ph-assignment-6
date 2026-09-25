@@ -1,7 +1,6 @@
 import { ExerciseDeatailsParams, ExerciseDetails } from "@/app/types/types"
 import Image from "next/image";
-import { CiBookmark } from "react-icons/ci";
-import { LuCalendarPlus2 } from "react-icons/lu";
+import UpdateButton from "./components/UpdateButton";
 
 const getExerciseDetails = async(id: number): Promise<ExerciseDetails> => {
     const request = await fetch(`https://api.abcz.workers.dev/api/fitlog/${id}`);
@@ -85,11 +84,8 @@ const ExerciseDetailPage = async({params}: ExerciseDeatailsParams) => {
                         </ol>
                     </div>
 
-                    <div className="flex flex-col gap-4
-                    md:flex-row">
-                        <button className="flex justify-center items-center gap-2 rounded-xl bg-lime-400 font-semibold text-black text-sm px-6 py-3 cursor-pointer"><LuCalendarPlus2 className="text-base" />Add to today's plan</button>
-                        <button className="flex justify-center items-center gap-2 rounded-xl outline outline-gray-800 font-semibold text-white text-sm px-6 py-3 cursor-pointer"><CiBookmark className="text-base" />Save for later</button>
-                    </div>
+                    <UpdateButton exercise={exerciseDetails} />
+
                 </div>
             </div>
         </>

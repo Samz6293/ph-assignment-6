@@ -1,3 +1,5 @@
+import { Dispatch, SetStateAction } from "react"
+
 export interface Workout {
     id: number
     name: string
@@ -21,6 +23,10 @@ export interface WorkoutCardProps {
  export interface ExerciseContextType {
     onLink: string
     setOnLink: (link: string) => void
+    plan: ExerciseDetails[]
+    setPlan: Dispatch<SetStateAction<ExerciseDetails[]>>
+    saved: ExerciseDetails[]
+    setSaved: Dispatch<SetStateAction<ExerciseDetails[]>>
 }
 
 export interface ExerciseDeatailsParams {
@@ -41,4 +47,8 @@ export interface ExerciseDetails {
     rating: number
     description: string
     instructions: string[]
+}
+
+export interface UpdateButtonProps {
+    exercise: ExerciseDetails;
 }

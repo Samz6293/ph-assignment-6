@@ -22,7 +22,7 @@ const Nav = () => {
         }
     },[isOpen])
 
-    const {onLink, setOnLink} = useContext(ExerciseContextCreate);
+    const {onLink, setOnLink, plan, saved} = useContext(ExerciseContextCreate);
     const handleOnLink = (link: string) => {
         if(onLink !== link) {
             setOnLink(link);
@@ -70,18 +70,18 @@ const Nav = () => {
 
                 {/* plan, saved */}
                 <div className="flex gap-4 items-center justify-end text-xs">
-                    <Link href={"my-plan"} onClick={() => handleOnLink("My Plan")}>
+                    <Link href={"/my-plan"} onClick={() => handleOnLink("My Plan")}>
                         <div className="flex gap-2 items-center">
-                            <p>Plan </p>
-                            <p className="bg-lime-400 rounded-full px-1.5 py-0.5 font-bold text-center text-black">0</p>
+                            <p>Plan</p>
+                            <p className="bg-lime-400 rounded-full px-2 py-0.5 font-bold text-center text-black">{plan.length}</p>
                         </div>
                     </Link>
 
                     
-                    <Link href={"my-plan"} onClick={() => handleOnLink("My Plan")}>
+                    <Link href={"/my-plan"} onClick={() => handleOnLink("My Plan")}>
                         <div className="flex gap-2 items-center">
                             <p className="text-gray-300">Saved</p>
-                            <p className="outline-2 outline-gray-500/30 rounded-full px-1.5 py-0.5 text-center">0</p>
+                            <p className="outline-2 outline-gray-500/30 rounded-full px-2 py-0.5 text-center">{saved.length}</p>
                         </div>
                     </Link>
                 </div>

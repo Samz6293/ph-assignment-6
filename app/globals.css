@@ -25,3 +25,7 @@
 @utility end-to-end {
     @apply grid grid-cols-1 border-b-zinc-800 border-b items-center gap-1 md:grid-cols-2;
 }
+
+ @utility active-section {
+    @apply bg-gray-600/50 outline outline-gray-500/70 py-0.5  rounded-md font-bold;
+ }
