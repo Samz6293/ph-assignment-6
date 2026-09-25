@@ -1,8 +1,9 @@
 "use client";
 import { useContext, useState } from "react";
 import { ExerciseContextCreate } from "../context/ExerciseContext";
-import Empty from "./Empty";
-import Heading from "./Heading";
+import Empty from "./components/Empty";
+import Heading from "./components/Heading";
+import PlannedCard from "./components/PlannedCard";
 
 export default function MyPlanPage() {
 
@@ -47,7 +48,11 @@ export default function MyPlanPage() {
                 {(mode === "plan" && plan.length === 0) || (mode === "saved" && saved.length === 0) ?
                     <Empty />
                 :
-                <p>Conditional Render</p>
+                mode === "plan" ? 
+                    <div className="flex flex-col mb-12">
+                        {plan.map(exercise => <PlannedCard key={exercise.id} exercise={exercise} />)}
+                    </div>
+                : <p>yo</p>
                 }
             </div>
         </>

@@ -27,5 +27,5 @@
 }
 
  @utility active-section {
-    @apply bg-gray-600/50 outline outline-gray-500/70 py-0.5  rounded-md font-bold;
+    @apply bg-gray-600/50 text-lime-400 outline outline-gray-500/70 py-0.5  rounded-md font-bold;
  }

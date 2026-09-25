@@ -28,15 +28,13 @@ const WorkoutCard = ({workout}: WorkoutCardProps) => {
 
                     <h3 className="font-oswald font-bold uppercase mt-3">{workout.name}</h3>
                     <p className="text-xs text-gray-400">{workout.equipment}</p>
-
                     <div className="h-px w-full bg-zinc-600/40 my-3"></div>
 
                     {/* time, calorie, rating */}
                     <div className="flex gap-3 items-center text-xs text-gray-400">
-                        <p className="flex items-center gap-1 font-light"><FaRegClock />{workout.duration} min</p>
-                        <p className="flex items-center gap-1 font-light"><AiFillFire />{workout.caloriesBurned} min</p>
-                        <p className="flex items-center gap-1 font-light"><FaRegStar />{workout.rating} min</p>
-
+                        <p className="flex items-center gap-1 font-light"><FaRegClock className="text-lime-300"/>{workout.duration} min</p>
+                        <p className="flex items-center gap-1 font-light"><AiFillFire className="text-lime-300"/>{workout.caloriesBurned} min</p>
+                        <p className="flex items-center gap-1 font-light"><FaRegStar className="text-lime-300"/>{workout.rating} min</p>
                     </div>
                 </div>
             </div>

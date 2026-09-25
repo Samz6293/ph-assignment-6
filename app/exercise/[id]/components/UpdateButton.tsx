@@ -4,34 +4,46 @@ import { UpdateButtonProps } from "@/app/types/types"
 import { useContext } from "react";
 import { CiBookmark } from "react-icons/ci"
 import { LuCalendarPlus2 } from "react-icons/lu"
+import { Slide, toast } from "react-toastify";
 
 const UpdateButton = ({exercise}: UpdateButtonProps) => {
     const {plan, setPlan, saved, setSaved} = useContext(ExerciseContextCreate);
     const handlePlan = () => {
         if(plan.length === 5) {
-            console.log("full");
+            toast.error(`Finish today's workout first`, {
+            position: "top-right", autoClose: 1000, hideProgressBar: false, closeOnClick: true, 
+            pauseOnHover: false, draggable: true, progress: undefined, theme: "light", transition: Slide});
             return;
         }
 
         // duplicate check
         const inPlan = plan.some(workout => workout.id === exercise.id);
         if(!inPlan){
-            console.log(`Added ${exercise.name} to plan array`);
             setPlan([...plan, exercise]);
+            toast.success(`${exercise.name} added to today's plan`, {
+            position: "top-right", autoClose: 1000, hideProgressBar: false, closeOnClick: true, 
+            pauseOnHover: false, draggable: true, progress: undefined, theme: "light", transition: Slide});
         }
         else{
-            console.log("Already in array");
+            toast.error(`${exercise.name} already added`, {
+            position: "top-right", autoClose: 1000, hideProgressBar: false, closeOnClick: true, 
+            pauseOnHover: false, draggable: true, progress: undefined, theme: "light", transition: Slide});
         }
     }
 
     const handleSave = () => {
         const inSaved = saved.some(workout => workout.id === exercise.id)
         if(!inSaved){
-            console.log(`Added ${exercise.name} to save array`);
+            toast.success(`${exercise.name} saved for later`, {
+            position: "top-right", autoClose: 1000, hideProgressBar: false, closeOnClick: true, 
+            pauseOnHover: false, draggable: true, progress: undefined, theme: "light", transition: Slide});
             setSaved([...saved, exercise]);
         }
         else{
             console.log("Already in array");
+            toast.error(`${exercise.name} already added`, {
+            position: "top-right", autoClose: 1000, hideProgressBar: false, closeOnClick: true, 
+            pauseOnHover: false, draggable: true, progress: undefined, theme: "light", transition: Slide});
         }
 
     }
