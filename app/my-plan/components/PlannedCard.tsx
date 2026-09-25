@@ -41,9 +41,9 @@ const PlannedCard = ({exercise}: PlannedCardProps) => {
 
                     {/* time, calorie, rating */}
                     <div className="flex mt-2 gap-3 items-center text-xs text-gray-400">
-                        <p className="flex items-center gap-1 font-light"><AiFillFire className="text-lime-300"/>{exercise.caloriesBurned} min</p>
                         <p className="flex items-center gap-1 font-light"><FaRegClock className="text-lime-300"/>{exercise.duration} min</p>
-                        <p className="flex items-center gap-1 font-light"><FaRegStar className="text-lime-300"/>{exercise.rating} min</p>
+                        <p className="flex items-center gap-1 font-light"><AiFillFire className="text-lime-300"/>{exercise.caloriesBurned} kcal</p>
+                        <p className="flex items-center gap-1 font-light"><FaRegStar className="text-lime-300"/>{exercise.rating}</p>
                     </div>
                 </div>
             </div>

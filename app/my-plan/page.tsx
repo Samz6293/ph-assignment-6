@@ -1,14 +1,30 @@
 "use client";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { ExerciseContextCreate } from "../context/ExerciseContext";
 import Empty from "./components/Empty";
 import Heading from "./components/Heading";
 import PlannedCard from "./components/PlannedCard";
+import { ExerciseDetails } from "../types/types";
 
 export default function MyPlanPage() {
 
     const {plan, saved} = useContext(ExerciseContextCreate);
     const [mode, setMode] = useState("plan");
+    const [sortby, setSortBy] = useState("Duration");
+    const sortPlannedExercises = (exercises: ExerciseDetails[]): ExerciseDetails[] => {
+        const sorted = [...exercises];
+        if(sortby === "Duration"){
+            sorted.sort((a,b)=> b.duration - a.duration);
+        }
+        else if (sortby === "Calories"){
+            sorted.sort((a,b) => b.caloriesBurned - a.caloriesBurned);
+        }
+        else if(sortby === "Rating")  {
+            sorted.sort((a,b) => b.rating - a.rating);
+        }
+        return sorted
+    }
+    const sortedPlannedExercises = sortPlannedExercises(plan);
     return (
         <>
             {/* wrapper */}
@@ -37,10 +53,23 @@ export default function MyPlanPage() {
                 </div>
 
                 {/* section and sort */}
-                <div className="mt-2 bg-zinc-900 rounded-lg p-1.5 outline outline-zinc-800 w-fit">
-                    <div className="space-x-2 text-xs font-light">
-                        <button onClick={() =>setMode("plan")} className={`px-4 cursor-pointer ${mode === "plan" && "active-section"}`}>Today's Plan</button>
-                        <button onClick={() =>setMode("saved")} className={`px-4 cursor-pointer ${mode === "saved" && "active-section"}`}>Saved</button>
+                <div className="flex items-center justify-between">
+                    <div className="bg-zinc-900 rounded-lg p-1.5 outline outline-zinc-800 w-fit">
+                        <div className="space-x-2 text-xs font-light">
+                            <button onClick={() =>setMode("plan")} className={`px-4 cursor-pointer ${mode === "plan" && "active-section"}`}>Today's Plan</button>
+                            <button onClick={() =>setMode("saved")} className={`px-4 cursor-pointer ${mode === "saved" && "active-section"}`}>Saved</button>
+                        </div>
+                    </div>
+
+                    <div className="flex items-center gap-4">
+                        <p className="text-sm text-gray-500">Sort By</p>
+                        <div>
+                        <select defaultValue={sortby} onChange={(e)=> setSortBy(e.target.value)} className="select w-50 bg-zinc-900 rounded-lg p-1.5">
+                            <option value="Duration">Duration</option>
+                            <option value="Calories">Calories</option>
+                            <option value="Rating">Rating</option>
+                        </select>
+                        </div>
                     </div>
                 </div>
 
@@ -50,9 +79,12 @@ export default function MyPlanPage() {
                 :
                 mode === "plan" ? 
                     <div className="flex flex-col mb-12">
-                        {plan.map(exercise => <PlannedCard key={exercise.id} exercise={exercise} />)}
+                        {sortedPlannedExercises.map(exercise => <PlannedCard key={exercise.id} exercise={exercise} />)}
                     </div>
-                : <p>yo</p>
+                : 
+                    <div>
+
+                    </div>
                 }
             </div>
         </>
