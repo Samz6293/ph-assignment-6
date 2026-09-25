@@ -8,6 +8,7 @@ import { Slide, toast } from "react-toastify";
 
 const UpdateButton = ({exercise}: UpdateButtonProps) => {
     const {plan, setPlan, saved, setSaved} = useContext(ExerciseContextCreate);
+    const inPlan = plan.some(workout => workout.id === exercise.id);
     const handlePlan = () => {
         if(plan.length === 5) {
             toast.error(`Finish today's workout first`, {
@@ -17,7 +18,6 @@ const UpdateButton = ({exercise}: UpdateButtonProps) => {
         }
 
         // duplicate check
-        const inPlan = plan.some(workout => workout.id === exercise.id);
         if(!inPlan){
             setPlan([...plan, exercise]);
             toast.success(`Added to today's plan`, {
@@ -51,7 +51,7 @@ const UpdateButton = ({exercise}: UpdateButtonProps) => {
     return (
         <div className="flex flex-col gap-4
         lg:flex-row">
-            <button onClick={handlePlan} className="flex justify-center items-center gap-2 rounded-xl bg-lime-400 font-semibold text-black text-sm px-6 py-3 cursor-pointer"><LuCalendarPlus2 className="text-base" />Add to today's plan</button>
+            <button onClick={handlePlan} className={`${inPlan || plan.length === 5 ? "cursor-not-allowed" : "cursor-pointer"} flex justify-center items-center gap-2 rounded-xl bg-lime-400 font-semibold text-black text-sm px-6 py-3 `}><LuCalendarPlus2 className="text-base" />Add to today's plan</button>
             <button onClick={handleSave} className="flex justify-center items-center gap-2 rounded-xl outline outline-gray-800 font-semibold text-white text-sm px-6 py-3 cursor-pointer"><CiBookmark className="text-base" />Save for later</button>
         </div>
     )

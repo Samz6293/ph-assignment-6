@@ -25,6 +25,11 @@ const PlannedCard = ({exercise}: PlannedCardProps) => {
             pauseOnHover: false, draggable: true, progress: undefined, theme: "light", transition: Slide});
         }
     }
+    const showDetailToast = () => {
+        toast.info(`Showing ${exercise.name} details`, {
+        position: "top-right", autoClose: 1000, hideProgressBar: false, closeOnClick: true, 
+        pauseOnHover: false, draggable: true, progress: undefined, theme: "light", transition: Slide});
+    }
     return (
         <div className="bg-zinc-900 rounded-xl p-4 overflow-hidden flex flex-col justify-between outline outline-zinc-800 w-full mb-5
         md:flex-row">
@@ -54,7 +59,7 @@ const PlannedCard = ({exercise}: PlannedCardProps) => {
             {/* buttons */}
             <div className="flex mt-3 gap-3 items-center">
                 <Link href={`/exercise/${exercise.id}`}>
-                <button  className="flex w-fit justify-center items-center gap-2 rounded-full outline outline-gray-800  text-white text-xs px-3 py-1.5 cursor-pointer">View Details</button>
+                <button onClick={() => showDetailToast()}  className="flex w-fit justify-center items-center gap-2 rounded-full outline outline-gray-800  text-white text-xs px-3 py-1.5 cursor-pointer">View Details</button>
                 </Link>
                 <button onClick={() => handleRemove("done")}  className="flex w-fit justify-center items-center gap-2 rounded-full bg-lime-400 font-semibold text-black text-xs px-3 py-1.5 cursor-pointer"><FaCheck />Mark as Done</button>
                 <button onClick={() => handleRemove("remove")}><RxCross2 className="text-gray-500 cursor-pointer" /></button>
