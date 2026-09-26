@@ -14,7 +14,7 @@ const SavedCard = ({exercise}: SavedCardProps) => {
     const handleRemove = () => {
         const newSaved = saved.filter(work=> work.id !== exercise.id);
         setSaved(newSaved);
-        toast.success(`${exercise.name} removed from today's plan`, {
+        toast.success(`${exercise.name} removed from saved`, {
         position: "top-right", autoClose: 1000, hideProgressBar: false, closeOnClick: true, 
         pauseOnHover: false, draggable: true, progress: undefined, theme: "light", transition: Slide});
     }

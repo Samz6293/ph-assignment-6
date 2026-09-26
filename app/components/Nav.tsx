@@ -62,7 +62,7 @@ const Nav = () => {
                 <ul className="hidden justify-center items-center text-gray-500 gap-4 text-xs
                 md:flex">
                     {navlinks.map((link) => (
-                        <li key={link.name} className={`hover:text-lime-400 ${link.page === pathname && onLink !== "none" ? "font-bold text-lime-400 rounded-full px-3 py-1 bg-lime-800/20" : ""}`}>
+                        <li key={link.name} className={`hover:text-lime-400 ${link.page === pathname ? "font-bold text-lime-400 rounded-full px-3 py-1 bg-lime-800/20" : ""}`}>
                             <Link onClick={() => handleOnLink(link.name)} href={link.page}>
                                 {link.name}
                             </Link>
