@@ -25,7 +25,7 @@ const Hero = () => {
 
                     {/* image */}
                     <div>
-                        <Image src={banner} alt="Muscular Figure working out" width={334} height={334}/>
+                        <Image src={banner} alt="Muscular Figure working out" width={334} height={334} loading="eager"/>
                     </div>
 
 

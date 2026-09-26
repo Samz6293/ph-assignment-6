@@ -21,8 +21,6 @@ export interface WorkoutCardProps {
 }
 
  export interface ExerciseContextType {
-    onLink: string
-    setOnLink: (link: string) => void
     plan: ExerciseDetails[]
     setPlan: Dispatch<SetStateAction<ExerciseDetails[]>>
     saved: ExerciseDetails[]

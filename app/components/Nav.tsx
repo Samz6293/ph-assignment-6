@@ -22,14 +22,9 @@ const Nav = () => {
             document.body.style.overflow = "auto";
         }
     },[isOpen])
-    const pathname = usePathname();
 
-    const {onLink, setOnLink, plan, saved} = useContext(ExerciseContextCreate);
-    const handleOnLink = (link: string) => {
-        if(onLink !== link) {
-            setOnLink(link);
-        }
-    }
+    const pathname = usePathname();
+    const {plan, saved} = useContext(ExerciseContextCreate);
 
     return (
         <nav className="font-inter sticky top-0 z-50 py-4 backdrop-blur-xl border-b border-gray-500/80
@@ -52,7 +47,7 @@ const Nav = () => {
                 {/* logo */}
                 <div className="hidden gap-2 items-center
                 md:flex">
-                    <Link href={"/"} className="flex gap-2 items-center" onClick={() => {onLink !== "none" && handleOnLink("Workouts")}}>
+                    <Link href={"/"} className="flex gap-2 items-center">
                         <Image src={logo} alt="FITLOG Logo" width={28} height={28} className="w-5 h-auto"/>
                         <p className="font-oswald font-extrabold">FITLOG</p>
                     </Link>
@@ -63,7 +58,7 @@ const Nav = () => {
                 md:flex">
                     {navlinks.map((link) => (
                         <li key={link.name} className={`hover:text-lime-400 active:scale-95 ${link.page === pathname ? "font-bold text-lime-400 rounded-full px-3 py-1 bg-lime-800/20" : ""}`}>
-                            <Link onClick={() => handleOnLink(link.name)} href={link.page}>
+                            <Link href={link.page}>
                                 {link.name}
                             </Link>
                         </li>
@@ -72,7 +67,7 @@ const Nav = () => {
 
                 {/* plan, saved */}
                 <div className="flex gap-4 items-center justify-end text-xs">
-                    <Link href={"/my-plan"} onClick={() => handleOnLink("My Plan")}>
+                    <Link href={"/my-plan"}>
                         <div className="flex gap-2 items-center hover:bg-gray-900 active:scale-95 rounded-full px-2 py-1">
                             <p>Plan</p>
                             <p className="bg-lime-400 rounded-full px-2 py-0.5 font-bold text-center text-black">{plan.length}</p>
@@ -80,7 +75,7 @@ const Nav = () => {
                     </Link>
 
                     
-                    <Link href={"/my-plan"} onClick={() => handleOnLink("My Plan")}>
+                    <Link href={"/my-plan"}>
                         <div className="flex gap-2 items-center  hover:bg-gray-900 active:scale-95 rounded-full px-2 py-1">
                             <p className="text-gray-300">Saved</p>
                             <p className="outline-2 outline-gray-500/30 rounded-full px-2 py-0.5 text-center">{saved.length}</p>
