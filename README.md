@@ -2,6 +2,12 @@
 
 FitLog is a modern fitness tracking and workout planning web app built with Next.js. It helps users browse a library of exercises, add workouts to a personalized daily plan, save favorites, and track totals like duration and calories burned.
 
+## 📸 Preview
+
+![Fitlog hero](./app/assets/hero.png)
+![exercise details](./app/assets/exercise-details.png)
+![Saved exercises](./app/assets/my-plan-saved.png)
+
 ## Project Overview
 
 This application is designed for users who want a focused, visually clean workout companion. The interface emphasizes a strong gym aesthetic and makes it easy to explore different exercises, plan workouts, and review saved favorites.
