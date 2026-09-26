@@ -59,10 +59,12 @@ const PlannedCard = ({exercise}: PlannedCardProps) => {
             {/* buttons */}
             <div className="flex mt-3 gap-3 items-center">
                 <Link href={`/exercise/${exercise.id}`}>
-                <button onClick={() => showDetailToast()}  className="flex w-fit justify-center items-center gap-2 rounded-full outline outline-gray-800  text-white text-xs px-3 py-1.5 cursor-pointer">View Details</button>
+                <button onClick={() => showDetailToast()}  className="flex w-fit justify-center items-center gap-2 rounded-full outline outline-gray-800  text-white text-xs px-3 py-1.5 cursor-pointer
+                hover:bg-zinc-800 active:scale-95">View Details</button>
                 </Link>
-                <button onClick={() => handleRemove("done")}  className="flex w-fit justify-center items-center gap-2 rounded-full bg-lime-400 font-semibold text-black text-xs px-3 py-1.5 cursor-pointer"><FaCheck />Mark as Done</button>
-                <button onClick={() => handleRemove("remove")}><RxCross2 className="text-gray-500 cursor-pointer" /></button>
+                <button onClick={() => handleRemove("done")}  className="flex w-fit justify-center items-center gap-2 rounded-full bg-lime-400 font-semibold text-black text-xs px-3 py-1.5 cursor-pointer
+                hover:bg-lime-500 active:scale-95"><FaCheck />Mark as Done</button>
+                <button onClick={() => handleRemove("remove")}><RxCross2 className="text-gray-500 cursor-pointer hover:text-gray-400 active:scale-90 text-lg" /></button>
             </div>
         </div>
     )

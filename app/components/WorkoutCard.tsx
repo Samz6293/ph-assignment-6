@@ -10,7 +10,7 @@ const WorkoutCard = ({workout}: WorkoutCardProps) => {
             {/* frame */}
             <Link href={`/exercise/${workout.id}`}>
             <div className="bg-zinc-900 rounded-xl overflow-hidden flex flex-col justify-between outline outline-zinc-800 w-full
-            hover:outline-lime-400">
+            hover:outline-lime-400 active:scale-95">
                 {/* image */}
                 <div className="h-full overflow-hidden">
                     <Image src={workout.image} alt={workout.name} width={593} height={593}/>

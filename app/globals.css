@@ -20,7 +20,7 @@
 }
 
 @utility nav-clicks {
-    @apply cursor-pointer text-2xl text-lime-400;
+    @apply cursor-pointer text-2xl text-lime-400 active:scale-95;
 }
 
 @utility end-to-end {

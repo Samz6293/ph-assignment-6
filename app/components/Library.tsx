@@ -22,7 +22,7 @@ const Library = async() => {
 
                 {/* cards */}
                 <div className="content-box-s grid grid-cols-1 gap-6
-               sm:grid-cols-2 md:grid-cols-3 md:content-box">
+               sm:grid-cols-2 lg:grid-cols-3 md:content-box">
                     {workouts.map((workout: Workout) => <WorkoutCard key={workout.id} workout={workout}/>)}
                 </div>
             </div>

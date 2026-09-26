@@ -59,8 +59,8 @@ export default function MyPlanPage() {
                 md:flex-row md:items-center">
                     <div className="bg-zinc-900 rounded-lg p-1.5 outline outline-zinc-800 w-fit">
                         <div className="space-x-2 text-xs font-light">
-                            <button onClick={() =>setMode("plan")} className={`px-4 cursor-pointer ${mode === "plan" && "active-section"}`}>Today's Plan</button>
-                            <button onClick={() =>setMode("saved")} className={`px-4 cursor-pointer ${mode === "saved" && "active-section"}`}>Saved</button>
+                            <button onClick={() =>setMode("plan")} className={`px-4 cursor-pointer hover:text-lime-400 active:scale-95 ${mode === "plan" && "active-section"}`}>Today's Plan</button>
+                            <button onClick={() =>setMode("saved")} className={`px-4 cursor-pointer hover:text-lime-400 active:scale-95 ${mode === "saved" && "active-section"}`}>Saved</button>
                         </div>
                     </div>
 
@@ -68,7 +68,7 @@ export default function MyPlanPage() {
                     md:flex-row">
                         <p className="text-sm text-gray-500">Sort By</p>
                         <div>
-                        <select defaultValue={sortby} onChange={(e)=> setSortBy(e.target.value)} className="select w-49 bg-zinc-900 rounded-lg p-1.5">
+                        <select defaultValue={sortby} onChange={(e)=> setSortBy(e.target.value)} className="select hover:bg-zinc-950 cursor-pointer w-49 bg-zinc-900 rounded-lg p-1.5">
                             <option value="Duration">Duration</option>
                             <option value="Calories">Calories</option>
                             <option value="Rating">Rating</option>

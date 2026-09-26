@@ -52,9 +52,11 @@ const SavedCard = ({exercise}: SavedCardProps) => {
             {/* buttons */}
             <div className="flex mt-3 gap-3 items-center">
                 <Link href={`/exercise/${exercise.id}`}>
-                <button onClick={() => showDetailToast()}  className="flex w-fit justify-center items-center gap-2 rounded-full outline outline-gray-800  text-white text-xs px-3 py-1.5 cursor-pointer">View Details</button>
+                <button onClick={() => showDetailToast()}  className="flex w-fit justify-center items-center gap-2 rounded-full outline outline-gray-800  text-white text-xs px-3 py-1.5 cursor-pointer
+                hover:bg-zinc-800 active:scale-95">View Details</button>
                 </Link>
-                <button onClick={() => handleRemove()}><RxCross2 className="text-gray-500 cursor-pointer" /></button>
+                <button onClick={() => handleRemove()}><RxCross2 className="text-gray-500 cursor-pointer
+                hover:text-gray-400 active:scale-90 text-lg" /></button>
             </div>
         </div>
     )
